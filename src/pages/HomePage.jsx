@@ -8,9 +8,14 @@ import SearchIcon from '@mui/icons-material/Search';
 
 export const HomePage = () => {
 
+    // Variable to store data and mange the state
+    
     const [data,setData] = useState([]);
     const [search,setSearch] = useState('');
     const [input,setInput] = useState('');
+
+    // function to fetch data from the API
+
     const fetchData = () =>{
         axios.get(`https://api.punkapi.com/v2/beers`)
         .then((res)=>{
@@ -18,6 +23,8 @@ export const HomePage = () => {
             setData(res.data)
         });
     }
+
+    // funtion to searrch data on every click on search button
 
     const searched = () => {
         setSearch(input)
@@ -33,6 +40,7 @@ export const HomePage = () => {
         <center>
         <h1>HomePage</h1>
         
+        {/* Search bar */}
 
         <Paper component="form" sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}>
             <InputBase
@@ -47,6 +55,8 @@ export const HomePage = () => {
             </IconButton>
         </Paper>
         
+
+        {/* Card container all cards will going to show here */}
         
         <div className='cardContainer'>
         {
