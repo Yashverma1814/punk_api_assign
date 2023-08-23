@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 
-export const CardComponent = () => {
+export const CardComponent = ({product}) => {
   return (
     <div>
         <Card sx={{ maxWidth: 345 }}>
@@ -14,16 +14,16 @@ export const CardComponent = () => {
                 <CardMedia
                 component="img"
                 height="140"
-                image="/static/images/cards/contemplative-reptile.jpg"
+                image={product.image_url}
                 alt="green iguana"
                 />
                 <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                    {product.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+                    <div>{product.tagline}</div>
+                    <div>Price :- {product.boil_volume.value}$</div>
                 </Typography>
                 </CardContent>
             </CardActionArea>
